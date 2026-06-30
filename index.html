@@ -36,12 +36,13 @@
   @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(30px) translateX(20px)}}
 
   .avatar{
-    width:132px;height:132px;border-radius:50%;margin-bottom:26px;padding:3px;
+    width:clamp(200px,36vw,280px);height:clamp(200px,36vw,280px);
+    border-radius:50%;margin-bottom:32px;padding:5px;
     background:linear-gradient(135deg,var(--accent),var(--accent2));
-    box-shadow:0 14px 44px rgba(110,168,254,.40);
+    box-shadow:0 20px 60px rgba(110,168,254,.45);
     animation:rise .8s ease both;
   }
-  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--bg)}
+  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:4px solid var(--bg)}
   h1{
     font-size:clamp(2.4rem,6vw,4rem); font-weight:800; letter-spacing:-1px;
     background:linear-gradient(90deg,#fff,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent;
