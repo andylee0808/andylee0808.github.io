@@ -3,24 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andy Lee</title>
+<title>Andy Lee — 量化交易系統開發</title>
+<meta name="description" content="Andy Lee 的個人首頁 — 量化交易系統、.NET / Python 開發。">
 <style>
-body{font-family:system-ui,"Segoe UI",sans-serif;max-width:700px;margin:60px auto;padding:0 20px;line-height:1.7;color:#1f2328}
-h1{font-size:2.2rem;margin-bottom:0}
-.muted{color:#656d76}
-a{color:#0969da;text-decoration:none}a:hover{text-decoration:underline}
-hr{border:none;border-top:1px solid #d0d7de;margin:24px 0}
-ul{padding-left:1.2rem}
+  :root{
+    --bg:#0b0f17; --bg2:#0f1626; --card:rgba(255,255,255,.04);
+    --border:rgba(255,255,255,.10); --text:#e6edf3; --muted:#9aa7b8;
+    --accent:#6ea8fe; --accent2:#a78bfa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative; min-height:88vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:0 24px;
+    background:
+      radial-gradient(900px 500px at 70% -10%, rgba(167,139,250,.20), transparent 60%),
+      radial-gradient(700px 500px at 10% 10%, rgba(110,168,254,.18), transparent 55%),
+      linear-gradient(180deg, var(--bg), var(--bg2));
+    overflow:hidden;
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:float 14s ease-in-out infinite}
+  .blob.b1{width:340px;height:340px;background:#3b82f6;top:-60px;right:-40px}
+  .blob.b2{width:300px;height:300px;background:#8b5cf6;bottom:-80px;left:-60px;animation-delay:-5s}
+  @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(30px) translateX(20px)}}
+
+  .avatar{
+    width:104px;height:104px;border-radius:50%;display:grid;place-items:center;
+    font-size:2.4rem;font-weight:800;letter-spacing:1px;color:#fff;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    box-shadow:0 12px 40px rgba(110,168,254,.35); margin-bottom:26px;
+    animation:rise .8s ease both;
+  }
+  h1{
+    font-size:clamp(2.4rem,6vw,4rem); font-weight:800; letter-spacing:-1px;
+    background:linear-gradient(90deg,#fff,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:rise .8s .05s ease both;
+  }
+  .tagline{color:var(--muted);font-size:clamp(1rem,2.4vw,1.25rem);margin-top:14px;max-width:560px;animation:rise .8s .12s ease both}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px;animation:rise .8s .2s ease both}
+  .btn{
+    padding:12px 24px;border-radius:999px;font-weight:600;font-size:.98rem;
+    border:1px solid var(--border);transition:transform .15s ease,box-shadow .2s ease,background .2s ease;
+  }
+  .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f17;border:none}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(110,168,254,.30)}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---- sections ---- */
+  .wrap{max-width:960px;margin:0 auto;padding:80px 24px}
+  .sec-title{font-size:1.6rem;font-weight:700;margin-bottom:28px;display:flex;align-items:center;gap:12px}
+  .sec-title::after{content:"";flex:1;height:1px;background:var(--border)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;
+    transition:transform .18s ease,border-color .2s ease,background .2s ease;
+  }
+  .card:hover{transform:translateY(-5px);border-color:rgba(110,168,254,.5);background:rgba(255,255,255,.06)}
+  .card h3{font-size:1.15rem;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .card .arrow{color:var(--accent);font-weight:600;margin-top:14px;display:inline-block}
+  .badge{display:inline-block;font-size:.72rem;padding:2px 10px;border-radius:999px;background:rgba(110,168,254,.16);color:var(--accent);margin-left:8px;vertical-align:middle}
+
+  .stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .chip{padding:6px 14px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:.88rem;background:var(--card)}
+
+  footer{text-align:center;color:var(--muted);padding:40px 24px;border-top:1px solid var(--border);font-size:.9rem}
+  footer a{color:var(--accent)}
 </style>
 </head>
 <body>
-<h1>Andy Lee</h1>
-<p class="muted">個人首頁 · GitHub Pages</p>
-<hr>
-<h2>專案</h2>
-<ul>
-<li><a href="https://andylee0808.github.io/AI/">AI</a></li>
-</ul>
-<p class="muted">更多內容陸續加入。</p>
+
+  <header class="hero">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="avatar">AL</div>
+    <h1>Andy Lee</h1>
+    <p class="tagline">量化交易系統開發 · .NET / Python · AI 應用</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">瀏覽專案</a>
+      <a class="btn" href="https://github.com/andylee0808" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap" id="about">
+      <h2 class="sec-title">關於</h2>
+      <p style="color:var(--muted);max-width:680px">
+        專注於量化交易系統與自動化交易引擎的設計與實作,熟悉 .NET / WPF 與 Python 資料分析。
+        這裡收錄我的專案與實驗。
+      </p>
+      <div class="stack">
+        <span class="chip">C# / .NET</span>
+        <span class="chip">WPF</span>
+        <span class="chip">Python</span>
+        <span class="chip">量化交易</span>
+        <span class="chip">AI / LLM</span>
+      </div>
+    </section>
+
+    <section class="wrap" id="projects">
+      <h2 class="sec-title">專案</h2>
+      <div class="grid">
+        <a class="card" href="https://andylee0808.github.io/AI/" target="_blank" rel="noopener">
+          <h3>AI <span class="badge">Live</span></h3>
+          <p>AI 相關的網頁與實驗。</p>
+          <span class="arrow">前往 →</span>
+        </a>
+        <a class="card" href="https://github.com/andylee0808" target="_blank" rel="noopener">
+          <h3>GitHub</h3>
+          <p>我所有的程式碼與 repository。</p>
+          <span class="arrow">前往 →</span>
+        </a>
+        <div class="card" style="cursor:default">
+          <h3>更多即將推出</h3>
+          <p>更多網頁作品與專案陸續加入中。</p>
+          <span class="arrow" style="color:var(--muted)">敬請期待</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Andy Lee · 由 <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a> 託管
+  </footer>
+
 </body>
 </html>
