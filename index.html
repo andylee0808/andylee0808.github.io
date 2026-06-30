@@ -36,12 +36,12 @@
   @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(30px) translateX(20px)}}
 
   .avatar{
-    width:104px;height:104px;border-radius:50%;display:grid;place-items:center;
-    font-size:2.4rem;font-weight:800;letter-spacing:1px;color:#fff;
+    width:132px;height:132px;border-radius:50%;margin-bottom:26px;padding:3px;
     background:linear-gradient(135deg,var(--accent),var(--accent2));
-    box-shadow:0 12px 40px rgba(110,168,254,.35); margin-bottom:26px;
+    box-shadow:0 14px 44px rgba(110,168,254,.40);
     animation:rise .8s ease both;
   }
+  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--bg)}
   h1{
     font-size:clamp(2.4rem,6vw,4rem); font-weight:800; letter-spacing:-1px;
     background:linear-gradient(90deg,#fff,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent;
@@ -85,7 +85,7 @@
   <header class="hero">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
-    <div class="avatar">AL</div>
+    <div class="avatar"><img src="avatar.jpg" alt="Andy Lee"></div>
     <h1>Andy Lee</h1>
     <p class="tagline">量化交易系統開發 · .NET / Python · AI 應用</p>
     <div class="cta">
